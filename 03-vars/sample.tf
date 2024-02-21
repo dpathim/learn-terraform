@@ -56,7 +56,7 @@ output "fruits_second" {
 
 //access the variable map of map with key
 output "fruit_stocks_apple"{
-  value = var.fruit_stocks.apple
+  value = var.fruit_stocks.apple // ["apple"]
 }
 
 output "fruit_stock_with_price_banana" {
