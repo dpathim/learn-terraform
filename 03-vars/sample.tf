@@ -66,3 +66,24 @@ output "fruit_stock_with_price_banana" {
 output "fruit_stock_with_price_apple_stock" {
   value = var.fruit_stock_with_price.apple.stock
 }
+
+# Variable Data Types
+variable "fruit_details" {
+  default = {
+    apple = {
+      stock = 100 # number
+      type = "washington" # string
+      for_sale = true # boolean
+    }
+  }
+}
+
+# Variable with the combination of any other sting then it needs to be i ${}
+
+output "fruit_name_1" {
+  value = "Fruit Name=${var.fruit_name}"
+}
+
+output "fruit_details_apple" {
+  value = "Apple Stock = ${var.fruit_details["apple"].stock}, Apple Type =${var.fruit_details["apple"].type} , Apple sale Status = ${var.fruit_details[apple].for_sale}"
+}
