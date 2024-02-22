@@ -17,11 +17,12 @@ resource "aws_route53_record" "record" {
 }
 
 resource "null_resource" "ansible" {
+
  depends_on = [aws_route53_record.record]
 
   provisioner "local-exec" {
     command =  <<EOF
-cd/home/root/roboshop-shell/learn-ansible/roboshop-ansible
+cd /home/root/roboshop-shell/learn-ansible/roboshop-ansible
 
 git pull
 sleep 30
