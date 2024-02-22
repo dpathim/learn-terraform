@@ -22,8 +22,8 @@ resource "null_resource" "ansible" {
 
   provisioner "local-exec" {
     command =  <<EOF
-pwd
-cd /home/root/roboshop-shell/learn-ansible/roboshop-ansible
+
+ cd /root/roboshop-ansible
 
 git pull
 sleep 30
