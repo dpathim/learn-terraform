@@ -1,7 +1,7 @@
 
 
 
-variable "vpc_security_groups" {
+variable "security_groups" {
   default = ["sg-038da0861b4c1788f"]
 }
 
@@ -12,9 +12,13 @@ variable "zone_id" {
 
 variable "components" {
   default = {
-    name = frontend
-    instance_type = "t3.micro"
+    frontend = {
+      name          = "frontend"
+      instance_type = "t3.micro"
+    }
+    cart = {
+      name          = "cart"
+      instance_type = "t3.micro"
+    }
   }
-   name = cart
-   instance_type = "t3.micro"
 }
