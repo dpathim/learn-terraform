@@ -17,7 +17,7 @@ variable "zone_id" {
 variable "components" {
   default = {
     frontend = { name = "frontend-dev" }
-    mongodb = { name = "mongodb-dev " }
+    mongodb = { name = "mongodb-dev" }
     catalogue = { name = "catalogue-dev" }
     user = { name = "user-dev" }
     redis = { name = "redis-dev" }
