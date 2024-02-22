@@ -9,14 +9,27 @@ resource "aws_instance" "instance" {
 }
 
 resource "aws_route53_record" "record" {
-  zone_id = var.zone_id
-  name    = "${var.name}-dev.vdevops562.online"
-  type    = "A"
-  ttl     = 30
-  records = [aws_instance.instance.private_ip]
+  zone_id                     = var.zone_id
+  name                        = "${var.name}-dev.vdevops562.online"
+  type                        = "A"
+  ttl                         = 30
+  records                     = [aws_instance.instance.private_ip]
 }
 
+resource "null_resource" "ansible" {
+ depends_on = [aws_route53_record.record]
 
+  provisioner "local-exec" {
+    command =  <<EOF
+cd/home/root/roboshop-shell/learn-ansible/roboshop-ansible
+
+git pull
+sleep 30
+
+ansible-playbook -i ${var.name}-dev.vdevops562.online, main.yml -e ansible_username=centos -e ansible_password=DevOps321 -e component=${var.name}
+EOF
+  }
+}
 
 
 
