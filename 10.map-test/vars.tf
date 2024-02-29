@@ -30,7 +30,7 @@ output "all_subnets_map" {
   value = [for k,v in var.vpc["main"]["subnets"] : v]
 }
 
-locals{
+locals {
   public = { for k,v in merge(var.vpc["main"]["subnets"],["public"]): k => v }
   app = { for k,v in merge(var.vpc["main"]["subnets"],["app"]): k => v }
   db = { for k,v in merge(var.vpc["main"]["subnets"],["db"]): k => v }
