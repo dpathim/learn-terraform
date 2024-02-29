@@ -29,7 +29,7 @@ variable "vpc" {
 #output "all_subnets_map" {
 #  value = [for k,v in var.vpc["main"]["subnets"] : v]
 #}
-
+#However this is not a good approach to follow.when should not touch the module once it is set up
 locals {
   public = { for k,v in merge(var.vpc["main"]["subnets"]["public"]): k => v }
   app = { for k,v in merge(var.vpc["main"]["subnets"]["app"]): k => v }
