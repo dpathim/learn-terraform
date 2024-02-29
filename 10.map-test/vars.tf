@@ -22,13 +22,13 @@ variable "vpc" {
 
 }
 
-output  "all_subnets" {
-value = var.vpc["main"]["subnets"]
-}
-
-output "all_subnets_map" {
-  value = [for k,v in var.vpc["main"]["subnets"] : v]
-}
+#output  "all_subnets" {
+#value = var.vpc["main"]["subnets"]
+#}
+#
+#output "all_subnets_map" {
+#  value = [for k,v in var.vpc["main"]["subnets"] : v]
+#}
 
 locals {
   public = { for k,v in merge(var.vpc["main"]["subnets"],["public"]): k => v }
